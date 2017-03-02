@@ -4,6 +4,7 @@
  */
 
  // Your code here
+var code = [];
 
  /**
   * Question 2
@@ -14,6 +15,10 @@
   */
 
 // Your code here
+code.push('x', 'u', 's', 'a', 'e', 'l', 'p', 'e', 'e', 'n',
+* 'i', 't', 'l', 'a', 'v', 'o', 'x', 'e', 'r',
+* 'o', 'm', 'c');
+
 
 /**
  * Question 3
@@ -22,6 +27,8 @@
  */
 
 // Your code here
+code.splice(index, 0); // remove first item
+code.pop(); // remove last item
 
 /**
  * Question 4
@@ -29,6 +36,7 @@
  */
 
 // Your code here
+code.reverse();
 
 /**
  * Question 5
@@ -37,6 +45,10 @@
  */
 
 // Your code here
+var codeLength = code.length,
+    codeLast = codeLength - 1;
+
+code[ codeLast ] = 'e';
 
 /**
  * Question 6
@@ -45,6 +57,8 @@
  */
 
 // Your code here
+code[4] = ' ';
+code[13] = ' ';
 
 /**
  * Question 7
@@ -53,3 +67,4 @@
  */
 
  // Your code here
+console.log( code.join() );
