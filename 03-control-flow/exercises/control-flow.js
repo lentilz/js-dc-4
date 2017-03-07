@@ -144,22 +144,22 @@
 // A basic `while loop`
 // console.log( 'while loop' )
 // var x = 10
-// while ( x >= 0  ) {
+// while ( x >= 4  ) {
 //   console.log( x )
 //   x--;
 // }
 
-// console.log( 'for loop' )
-// for ( var i = 10; i > 0; i-- ) {
-//   console.log( i );
-// }
+console.log( 'for loop' )
+for ( var i = 10; i > 0; i-- ) {
+  console.log( i );
+}
 
 // A `do while` loop
-// var i = 0
-// do {
-//   console.log( i )
-//   i++
-// } while ( i < 0 );
+var i = 0
+do {
+  console.log( i )
+  i++
+} while ( i < 0 );
 
 // var j = 0
 // while ( j < 0 ) {
