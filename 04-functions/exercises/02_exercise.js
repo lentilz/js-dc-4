@@ -10,3 +10,14 @@ Call both functions twice, passing in different numbers as arguments
 each time.
 
 */
+function addNumbers(num1, num2) {
+  console.log(num1 + ' + ' + num2 + '=', num1 + num2);
+}
+addNumbers(12, 63);
+addNumbers(15, 36);
+
+function substractNumbers(num1, num2){
+  console.log(num1 + ' - ' + num2 + '=', num1 - num2);
+}
+substractNumbers(36, 32);
+substractNumbers(73, 14);
