@@ -20,8 +20,14 @@ deckOfCards.
 
 */
 
+function createDeck(){
 
+  for (var c=0; c < suits.length; c++) {
+    console.log( suits[c], ranks[c]);
+  }
 
+}
+// createDeck();
 
 /*
 
@@ -32,8 +38,13 @@ Don't worry about removing the card from deckOfCards.
 
 */
 
+function getRandomCard(){
+  var suit = suits[Math.floor(Math.random() * suits.length)],
+      rank = ranks[Math.floor(Math.random() * ranks.length)];
 
-
+  console.log( rank + ' of ' + suit );
+}
+// getRandomCard();
 
 /*
 
