@@ -12,7 +12,21 @@ var ranks = ['ace', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'ni
 Card Scores: ace: 1, two: 2, three: 3, four: 4, ... jack: 11, king: 12, queen: 13
 
 */
-
+var scores = {
+  ace: 1,
+  two: 2,
+  three: 3,
+  four: 4,
+  five: 5,
+  six: 6,
+  seven: 7,
+  eight: 8,
+  nine: 9,
+  ten: 10,
+  jack: 11,
+  king: 12,
+  queen: 13
+}
 
 /*
 
@@ -29,7 +43,16 @@ Test out your constructor by creating a new card, `console.log`ing it to make su
 
 */
 
+function card ( suit, rank ) {
+  this.suit = suit
+  this.rank = rank
+  this.title = rank + ' of ' + suit
+  this.score = scores[ rank ]
 
+  console.log( this.title, ' scores: ' + this.score );
+}
+// console.log('should be ace of spades: ' + ranks[0] + suits[2]);
+card(suits[3], ranks[4]);
 
 /*
 
@@ -38,8 +61,23 @@ Write a constructor function for a deck of cards. The deck should contain a prop
 Your deck should contain a method called `createNewDeck` that will populate the `cards` array with all 52 card posibilities, using your card object from above. Someone should not be able to create a new deck of 52 cards if the deck's `cards` array already has cards in it
 
 */
+function Deck (  ) {
 
+  this.createNewDeck = function() {
+    var deck = []
 
+    for (var i = 0; i < suits.length; i++) {
+      for (var j = 0; j < ranks.length; j++) {
+        deck.push( new Card( suits[i], ranks[j] ) )
+      }
+    }
+
+    return deck
+  }
+
+  this.cards = this.createNewDeck()
+  console.log( this.cards );
+}
 
 /*
 

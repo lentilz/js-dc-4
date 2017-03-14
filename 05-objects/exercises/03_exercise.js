@@ -20,3 +20,20 @@ Apple, Red, 0.78
 Nuts, Brown, 2.23
 
 */
+
+var store = require('./data.json'),
+    storeSize = Object.keys(store).length,
+    headings = Object.keys( store.Foods[0] );
+
+// console.log(store['Store Name'], storeSize, headings.join(', ') );
+
+console.log( store['Store Name'] + "'s Current Stock");
+console.log( headings.join(', ') );
+
+for ( var i = 0; i < store.Foods.length; i++) {
+  // console.log( headings.join(', ') );
+  // console.log( store[Object.keys(store)[i]] + "'s Current Stock");
+  console.log( store.Foods[i].name + ', ' + store.Foods[i].color );
+  // console.log( Object.keys(store)[i] + ': ' + store[Object.keys(store)[i]] );
+  // console.log( store[Object.keys(store)[i]].typeOF )
+}

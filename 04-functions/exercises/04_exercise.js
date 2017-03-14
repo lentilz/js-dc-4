@@ -44,7 +44,7 @@ function getRandomCard(){
 
   console.log( rank + ' of ' + suit );
 }
-// getRandomCard();
+getRandomCard();
 
 /*
 
