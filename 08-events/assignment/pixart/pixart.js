@@ -33,7 +33,7 @@ for (var i = 0; i < 2500; i++) {
 }
 
 canvas.addEventListener('click', function(e){
-  paint( inputColor )
+  // paint( inputColor )
   // console.log( e );
 })
 
@@ -52,11 +52,14 @@ hints:
 
 */
 form.addEventListener('submit', function(e){
-  var inputColor = document.querySelector('#color-field').value;
+  var inputColor = document.querySelector('#color-field').value,
+      brush = document.querySelector('.brush');
+
+  // Change brush color
+  brush.setAttribute('style', 'background: ' + inputColor);
+  // console.log( brush );
 
   // console.log( inputColor );
-
-  return inputColor;
   e.preventDefault();
 });
 
