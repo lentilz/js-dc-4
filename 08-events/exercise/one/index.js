@@ -11,7 +11,10 @@ document.onreadystatechange -> event
 
 */
 
-
+console.log( document.readyState );
+document.onreadystatechange = function(){
+  console.log( document.readyState );
+}
 
 /*
 

@@ -8,7 +8,6 @@ In this exercise, students will build out a simple paint application. This appli
 */
 
 
-
 /*
 
 Step 1: Building the canvas
@@ -22,7 +21,21 @@ How we we create elements in JavaScript and add them to the page?
 
 */
 
+var canvas = document.querySelector('#canvas'),
+    square = document.createElement('DIV'),
+    form = document.querySelector('#form');
 
+square.setAttribute('class', 'square');
+
+for (var i = 0; i < 2500; i++) {
+  var squareCopy = square.cloneNode(true);
+  canvas.append( squareCopy );
+}
+
+canvas.addEventListener('click', function(e){
+  paint( inputColor )
+  // console.log( e );
+})
 
 /*
 
@@ -38,7 +51,14 @@ hints:
 (4) once you have the input field, it's current value is stored in the value property
 
 */
+form.addEventListener('submit', function(e){
+  var inputColor = document.querySelector('#color-field').value;
 
+  // console.log( inputColor );
+
+  return inputColor;
+  e.preventDefault();
+});
 
 
 /*
@@ -51,3 +71,7 @@ Hints:
 (2) think about what event we might want to attach our event handler too; what mouse events are there that might make sense?
 
 */
+
+function paint( color ){
+  event.target.style.backgroundColor = color;
+}

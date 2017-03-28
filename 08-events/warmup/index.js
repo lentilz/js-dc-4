@@ -18,8 +18,8 @@ Using JavaScript, get the 'js-gallery' list and save it to a variable. Then pull
 Hint: think about DOM methods that we can call on DOM elements we've already pulled from the page
 
 */
-
-
+var gallery = document.querySelector('.js-gallery'),
+    items = gallery.children;
 
 /*
 
@@ -32,8 +32,10 @@ To start, create a variable called slideCount that is equal to the number of sli
 To get the width, try getBoundingClientRect() or offsetWidth.
 
 */
-
-
+var slideCount = items.length,
+    slideWidth = items[0].getBoundingClientRect().width;
+// console.log( slideCount );
+// console.log( slideWidth );
 
 /*
 
@@ -50,6 +52,13 @@ Create a function called transitionSlide that, for now, just `console.log`'s 'Ca
 
 */
 
+// function transitionSlide(){
+//
+//   for (var i = 0; i < items.length; i++) {
+//     console.log( items[i] );
+//   }
+// }
+// setInterval( transitionSlide, 5000);
 
 
 /*
@@ -71,3 +80,21 @@ Inside transitionSlide() we need to do two things:
 Hint: delta should always be a negative number
 
 */
+var currentSlide = 1;
+
+function transitionSlide(){
+  var translateProp = "translateX( -" + slideWidth * currentSlide + "px  )";
+
+  if (currentSlide < slideCount ){
+    // gallery.setAttribute("style", "transform: translateX( -1000px )");
+    gallery.style.transform = translateProp;
+    currentSlide++;
+  } else {
+    gallery.style.transform = 0;
+    currentSlide = 1;
+    // gallery.setAttribute("style", "transform: translateX( 0 )");
+  }
+
+  console.log( currentSlide, slideCount );
+}
+setInterval( transitionSlide, 1000);
