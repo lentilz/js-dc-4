@@ -18,7 +18,8 @@ Using JavaScript, get the 'js-gallery' list and save it to a variable. Then pull
 Hint: think about DOM methods that we can call on DOM elements we've already pulled from the page
 
 */
-
+var gallery = document.querySelector('.js-gallery'),
+    items = gallery.children;
 
 
 
@@ -34,7 +35,10 @@ To get the width, try getBoundingClientRect() or offsetWidth.
 
 */
 
-
+var slideCount = items.length,
+    slideWidth = items[0].getBoundingClientRect().width;
+// console.log( items[0] );
+// console.log( slideWidth );
 
 /*
 
@@ -51,7 +55,10 @@ Create a function called transitionSlide that, for now, just `console.log`'s 'Ca
 
 */
 
-
+// function transitionSlide(){
+//   console.log('called');
+// }
+// setInterval( transitionSlide, 5000);
 
 /*
 
@@ -72,8 +79,17 @@ Inside transitionSlide() we need to do two things:
 
 Hint: delta should always be a negative number
 */
+var currentSlide = 1;
 
-
+if (currentSlide < slideCount ){
+  gallery.style.transform = "transform: translateX( -" + slideWidth * currentSlide + "px )";
+  currentSlide++;
+} else {
+  gallery.style.transform = 0;
+  currentSlide = 1;
+  // gallery.setAttribute("style", "transform: translateX( 0 )");
+}
+console.log( currentSlide );
 /*
 
 Step 5:
@@ -81,7 +97,20 @@ To setup - we need to comment out the timer we created in Step 3 and our transit
 
 */
 
-
+// function transitionSlide(){
+  // var currentSlide = 1;
+  //
+  // if (currentSlide < slideCount ){
+  //   gallery.setAttribute("style", "transform: translateX( -" + slideWidth + "px )");
+  //   // gallery.style.transform = translateProp;
+  //   currentSlide++;
+  // } else {
+  //   gallery.style.transform = 0;
+  //   currentSlide = 1;
+  //   // gallery.setAttribute("style", "transform: translateX( 0 )");
+  // }
+// }
+// setInterval( transitionSlide, 3000);
 /*
 
 Step 6:
@@ -91,6 +120,12 @@ Create a variable called sliderNav and assign it to the .js-nav-list element. Th
 
 */
 
+var sliderNav = document.querySelector('.js-nav-list');
+
+sliderNav.addEventListener('click', function( e, transitionSlide ){
+  e.preventDefault();
+  console.log( 'arrow clicked');
+});
 
 
 /*
@@ -115,5 +150,24 @@ If the current direction is left, decrement the currentSlide variable, otherwise
 
 Then translate your slide, just like we did last time. Just like we did last time? hmmm ...
 
-
 */
+
+
+var currentSlide = 0;
+
+function transitionSlide( e ){
+  e.preventDefault();
+
+  var currentDirection = e.data.target.dataset.direction;
+
+  if ( currentSlide === 0 && currentDirection === 'left') return
+  if ( currentSlide === slideCount && currentDirection === 'right') return
+
+  if ( currentDirection === 'right') {
+    currentSlide--;
+  } {
+    currentSlide++;
+  }
+
+  gallery.style.transform =  "translateX( " + slideWidth * currentSlide + "px ");
+}
